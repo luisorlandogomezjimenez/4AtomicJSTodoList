@@ -8,9 +8,7 @@ export default class View {
     this.addTodoForm = new AddTodo();
     this.modal = new Modal();
 
-    this.addTodoForm.onClick((title, description) =>
-      this.addTodo(title, description)
-    );
+    this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
     this.modal.onclick((id, values) => this.editTodo(id, values));
   }
 
@@ -34,6 +32,8 @@ export default class View {
 
   editTodo(id, values){
     console.log(id);
+    console.log(values);
+    
     
   }
 
