@@ -9,7 +9,8 @@ export default class View {
     this.modal = new Modal();
 
     this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
-    this.modal.onclick((id, values) => this.editTodo(id, values));
+    this.modal.onClick((id, values) => this.editTodo(id, values));
+    
   }
 
   setModel(model) {
@@ -31,10 +32,11 @@ export default class View {
   }
 
   editTodo(id, values){
-    console.log(id);
-    console.log(values);
-    
-    
+    this.model.editTodo(id, values);
+    const row = document.getElementById(id);
+    row.children[0].innerText = values.title;
+    row.children[1].innerText = values.description;
+    row.children[2].children[0].checked = values.completed;
   }
 
   removeTodo(id) {
